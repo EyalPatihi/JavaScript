@@ -1,0 +1,60 @@
+
+const getUserChoice= userInput=>{
+userInput = userInput.toLowerCase();
+if(userInput==='rock'||userInput==='paper'||userInput==='scissors' )
+{
+  return userInput
+}
+else
+{
+  console.log(`Error!`)
+}
+}
+//test the code 
+getUserChoice('Test')
+
+const getComputerChoice=()=>
+{
+ let random=(Math.floor(Math.random() * 3))
+ if(random===0)
+ {
+   return 'rock'
+ }
+ else if(random===1)
+ {
+   return 'paper'
+ }
+ else
+ {
+   return 'scissors'
+ }
+
+}
+const determineWinner=(userChoice,computerChoice)=>
+{
+  userChoice=getComputerChoice()
+  computerChoice=getComputerChoice()
+  console.log(`userChoice is ${userChoice}`)
+  console.log(`computerChoice is ${computerChoice}`)
+ if(userChoice===computerChoice)
+ {
+   return 'tie'
+ }
+ else{
+   if(userChoice==='rock' && computerChoice==='scissors'|| userChoice==='paper'&& computerChoice==='rock'||userChoice==='scissors' && computerChoice ==='paper' )
+   {
+     return 'userChoice'
+   }
+   else
+   {
+     return 'computerChoice'
+   }
+   
+ }
+}
+console.log(`the winner is...... ${determineWinner()} ! `)
+
+
+
+
+
