@@ -1,0 +1,89 @@
+//made by eyal
+const team = {
+
+players:[
+  {
+    firstName:'Eyal',
+    lastName:"brown",
+    age:25 },
+    {
+    firstName:'galina',
+    lastName:"newyork",
+    age:20,
+    },
+    {
+    firstName:'goku',
+    lastName:"yellow",
+    age:50,
+    }
+
+],
+games: [
+  {
+  opponent: 'fat',
+  teamPoints: 77,
+  opponentPoints: 83  
+  },
+  {
+  opponent: 'wife',
+  teamPoints: 0,
+  opponentPoints: 30
+  },
+  {
+  opponent: 'life',
+  teamPoints: "infit",
+  opponentPoints: 30
+  }
+],
+
+
+///get's
+get player()
+{
+  return this.players;
+},
+get game()
+{
+  return this.gaems;
+},
+
+
+///method
+addPlayer(fName,lName,age)//firstname,lastname
+{
+  let player ={
+    firstName: fName,
+    lastName: lName,
+    age: age
+  };
+  this.players.push(player);
+}
+,
+addGame(OPname,TP,OPpoint)//opponents,teampoint,oppoentspoint
+{
+  const game={
+    opponent: OPname,
+    teamPoints: TP,
+    opponentPoints: OPpoint,
+
+  }
+  this.games.push(game);
+}
+
+
+
+
+};
+//add players to object
+team.addPlayer('nofar','close',28)
+team.addPlayer('shiran','away',16)
+team.addPlayer('mitzi','zakala',24)
+
+//add games to objects
+team.addGame("food",77,83)
+team.addGame("sleep",8,4)
+team.addGame("sololife",0,100)
+
+
+console.log(team.players)
+console.log(team.games)
