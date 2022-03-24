@@ -1,0 +1,94 @@
+class Media{
+  constructor(title)
+  {
+    this._title=title;
+    this._ratings=[];
+    this._isCheckedOut=false; 
+
+  }
+  get title()
+  {
+    return this._title;
+  }
+  get isCheckedOut()
+  {
+    return this._isCheckedOut;
+  }
+  get ratings()
+  {
+    return this._ratings;
+  }
+  toggleCheckOutStatus()
+  {
+    this._toggleCheckOutStatus=!this._toggleCheckOutStatus;
+  }
+  getAverageRating()
+  {
+    let ratingSum=this.ratings.reduce((accumulator,rating)=> accumulator+rating);
+    return ratingSum/this.ratings.length;
+
+  }
+  addRating(add)
+  {
+    this.ratings.push(add);
+  }
+
+
+  set isCheckedOut(isit)
+  {
+    this._isCheckedOut=isit;
+  }
+}
+
+class Book extends Media{
+  constructor(author,title,pages)
+  {
+    super(title)
+    this._author=author;
+    this._pages=pages;
+  }
+  get author()
+  {
+    return this._author;
+  }
+  get pages()
+  {
+    return this._pages;
+  }
+}
+
+class Movie extends Media{
+  constructor(title,director,runtime)
+  {
+    super(title)
+    this._runtime=runtime;
+    this._director=director;
+  }
+  get runtime()
+  {
+    return this.runtime;
+  }
+  get director()
+  {
+    return this.director;
+  }
+
+
+}
+//book
+let historyOfEverything=new Book('Bil Bryson','A short history of nearly everything',544)
+historyOfEverything.toggleCheckOutStatus()
+console.log(historyOfEverything.isCheckedOut)
+historyOfEverything.addRating(4)
+historyOfEverything.addRating(5)
+historyOfEverything.addRating(5)
+console.log(historyOfEverything.getAverageRating())
+//movie
+let speed = new Movie('Eyal Patihi','this will give you a job',10)
+
+speed.toggleCheckOutStatus()
+console.log(speed.isCheckedOut)
+speed.addRating(1)
+speed.addRating(1)
+speed.addRating(5)
+console.log(speed.getAverageRating())
