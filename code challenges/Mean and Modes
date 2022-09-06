@@ -1,0 +1,47 @@
+/*
+Create a statsFinder() function that takes in a list of numbers and returns a list containing the mean and mode, in that order.
+As a reminder, the mean is the average of the values and the mode is the most occurring value. If there are multiple modes, return the mode that occurs first.
+Make sure that you write your functions and find these answers from scratch – don’t use imported tools!
+For example, statsFinder([500, 400, 400, 375, 300, 350, 325, 300]) should return [368.75, 400].
+*/
+
+function statsFinder(array) {
+  // Write your code here
+  let answer=[];
+  let size=array.length;
+  let sum=0;
+  let average=0;
+  let mode=0;
+  let flag=0;
+  for(let i=0;i<size;i++)
+  {
+    sum+=array[i];
+  }
+  average=sum/size;
+  answer.push(average);
+  for(let i=0;i<size;i++)
+  {
+    mode=array[i]
+    for(let j=i+1;j<size;j++)
+    {
+      if(mode===array[j])
+      {
+        flag=1;
+        break;
+      }
+    }
+    if(flag==1)
+    {
+      answer.push(mode)
+      break;
+    }
+
+  }
+return answer;
+
+}
+
+console.log(statsFinder([500, 400, 400, 375, 300, 350, 325, 300]))
+
+// Leave this so we can test your code:
+module.exports = statsFinder;
